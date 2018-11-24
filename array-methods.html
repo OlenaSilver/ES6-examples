@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML+ - array methods</title>
+    <style>
+        body {
+            width: 90%;
+            margin: 20px auto;
+            font-family: sans-serif;
+        }
+        
+        .mywrap {
+            border: 3px double #7f7298;
+            margin: 20px 0;
+            padding: 12px;
+        }
+        
+        .sample {
+            background-color: #b99fff;
+            padding: 7px;
+            border-left: 3px solid #7f7298;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test">
+        <button onclick="alert(products.every(productsLength))">every</button>
+        <button onclick="alert(products.some(productsLength))">some</button>
+    </div>
+    <div class="mywrap">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error officiis, nesciunt rem laudantium praesentium itaque consectetur dolorum.</p>
+        <p>Omnis sed perferendis molestiae placeat voluptate recusandae, illum aspernatur maxime deserunt ipsum reprehenderit quasi, error aperiam et?</p>
+        <p class="sample">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab labore dicta dignissimos id similique ullam.</p>
+        <p>Culpa cum nobis ratione animi sed eaque placeat dignissimos ipsa molestias, vitae, alias? Nemo, veniam atque illo!</p>
+        <p class="sample">Cupiditate, tempore! Laboriosam alias, voluptate fugiat quos voluptatibus veniam? Omnis labore incidunt ratione vitae sunt!</p>
+        <p>Eos tempore similique, obcaecati ipsam eum voluptate earum beatae soluta! Pariatur ea deleniti laudantium ex est laborum!</p>
+        <p>Repellendus aperiam minima iusto hic earum voluptas modi quia enim perferendis optio suscipit, corporis, nostrum officiis tempore.</p>
+        <p>Quaerat, officia error repudiandae? Tempore perferendis vero consequatur veniam recusandae. Tempora repellat minima odio, magnam neque, at!</p>
+
+
+        <p class="sample">Molestias architecto neque error, quidem, necessitatibus, rerum animi pariatur eaque velit inventore temporibus ea. Culpa.</p>
+    </div>
+    <script>
+        var arr = new Array(),
+            empty = [];
+        document.write('<p>Длина массива arr = ' + arr.length + '<br>Длина массива empty = ' + empty.length + '</p>');
+        let mass = new Array(2, 4, 6, 8, 0);
+        document.write('<p>Длина массива mass = ' + mass.length + '<br>Массив содержит: ' + mass + '</p>');
+        var products = ['линейка', 'карандаш', 'резинка', 'фломастеры', 'альбом'];
+        document.write('<p>Длина массива (количество элементов в нем) = ' + products.length + '<br>Массив содержит: ' + products + '</p>');
+        //Доступ к элементу массива по индексу
+        var first = products[0],
+            last = products[products.length - 1];
+        document.write('<p>Первый элемент массива products = ' + first + '<br>Последний элемент массива products =' + last + '</p>');
+        document.write('<ol>');
+        var sum = 0;
+        products.forEach(function(item, ind, array) {
+            document.write('<li>' + item + '</li>');
+
+        });
+        document.write('</ol>');
+        mass.forEach(function(elem) {
+                document.write(elem + ' | ')
+                sum += elem;
+            })
+            //filter
+        document.write('<p>Сумма элементов массива mass = ' + sum + '</p>');
+        var bigPoducts = products.filter(function(item) {
+            return item.length > 7;
+
+        });
+        //map
+        document.write(bigPoducts.join(' | '));
+        var mass2 = mass.map(function(item) {
+            return item * 2;
+        });
+        document.write('<p>' + mass.join(' / ') + '<p>');
+        document.write('<p>' + mass2.join(' / ') + '<p>');
+        //every, some
+        function productsLength(elem) {
+            return elem.length > 7;
+        }
+        //reduce
+        var res = mass.reduce(function(sum, current) {
+            return sum + current;
+        }, 0);
+        document.write('<p>Сумма элементов массива mass = ' + res + '</p>');
+        var res2 = mass.reduce(function(sum, current) {
+            document.write('current = ' + current + ', sum = ' + sum + ', sum+current = ' + (sum + current) + '<br>')
+            return sum + current;
+        });
+        document.write('<p>Сумма элементов массива mass = ' + res2 + '</p>');
+
+        var stringProducts = products.reduce(function(words, one, ind) {
+            // Перед первым словом не надо ставить пробел
+            return (ind === 0) ? words + one : words + ' ' + one;
+        }, '');
+        document.write('<p>' + stringProducts + '</p>');
+        var par = document.querySelectorAll('.mywrap p');
+        //        [...par].forEach(function(p) {
+        //            p.classList.add('sample');
+        //        });
+        [].forEach.call(par, function(p) {
+            // Добавление класса link-active для всех ссылок на странице
+            p.classList.add('sample');
+        });
+    </script>
+</body>
+
+</html>

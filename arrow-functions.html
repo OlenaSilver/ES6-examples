@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Functions</title>
+    <link rel="stylesheet" href="css/style-es6.css">
+</head>
+
+<body>
+    <div>
+        <button id="minusOne" class="btn">-1</button>Счетчик: <span id="counter">0</span>
+        <button id="plusOne" class="btn">+1</button>
+    </div>
+
+    <script>
+        //        var counter = 0;
+
+        function counterOld(counter) {
+            return ++counter;
+        }
+
+        let counterNew = (counter) => {
+            return --counter;
+        }
+
+        function showCounterIncreaseValue() {
+            var myCounter = +counter.innerHTML;
+            console.log(myCounter);
+            counter.innerHTML = counterOld(myCounter);
+        }
+
+        function showCounterDecreaseValue() {
+            var myCounter = +counter.innerHTML;
+            console.log(myCounter);
+            counter.innerHTML = counterNew(myCounter);
+        }
+        plusOne.onclick = showCounterIncreaseValue;
+        minusOne.onclick = showCounterDecreaseValue;
+        //Arrow functions
+       let sum =  (x) => {
+            return x * x;
+        }
+        let xSquare = (x) => x * x;
+        let xSquare2 = x => x * x;
+        let mnoj = (x, y) => x * y;
+        let myRandom () => Math.floor(Math.random() * 30 + 10);
+        // краткая форма
+        (x, y) => x * y;
+        // блочная форма
+        (x, y) => {
+            return x * y;
+        }
+        //    литерал объекта
+        (x, y) => ({
+            name: x,
+            age: y
+        });
+    </script>
+</body>
+
+</html>

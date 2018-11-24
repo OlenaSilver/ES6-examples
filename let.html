@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>let in JS ES6</title>
+</head>
+
+<body>
+    <script>
+        var a = 5;
+        document.write("<p>Объявление <strong>var</strong> a=" + a + "</p>"); {
+            let a = 10;
+            document.write("<p>Объявление <strong>let</strong> a=" + a + "</p>");
+        }
+        document.write("<p>После скобок a=" + a + "</p><ol>");
+        for (var i = 1; i < 6; i++) {
+            document.write("<li>В цикле <strong>var</strong> i=" + i + "<//li>");
+        }
+        document.write("</ol><p>После цикла <strong>var</strong> i=" + i + "</p><ol>");
+        for (let j = 1; j < 6; j++) {
+            document.write("<li>В цикле <strong>let</strong> j=" + j + "</li>");
+        }
+        document.write('</ol');
+//        document.write("<p>После цикла <strong>let</strong> j=" + j + "</p>");
+        for (var n = 1; n < 5; n++) {
+            setTimeout(() => {
+                document.write("var n = "+n +"<br>");
+            }, 1000);
+        }
+        for (let n = 1; n < 5; n++) {
+            setTimeout(() => {
+                document.write("let n = "+n +"<br>");
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
