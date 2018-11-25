@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="charset" content="utf-8">
+        <title>First exersize</title>
+    </head>
+    <body>
+        <script>
+        let money = +prompt("Ваш бюджет на месяц?","7500"),
+            time = prompt("Введите дату в формате YYYY-MM-DD", '2018-11-25');
+        let appData = {
+            budjet: money,
+            timeData: time,
+            expenses:{
+            
+            },
+            optionalExpenses:{
+
+            },
+            income:[],
+            savings: false    
+        }   
+        
+        let st1 = prompt("Введите обязательную статью расходов в этом месяце", 'Оплата квартиры');
+        let st1Value = +prompt("Во сколько обойдется "+st1+"?","800");
+        let st2 = prompt("Введите обязательную статью расходов в этом месяце", 'Оплата обучения');
+        let st2Value = +prompt("Во сколько обойдется "+st2+"?","1000"); 
+        appData.expenses[st1] = st1Value; 
+        appData.expenses[st2] = st2Value; 
+        console.log(appData)
+        let userBudjet = (appData.budjet - appData.expenses[st1]- appData.expenses[st2])/30;
+        console.log("Бюджет пользователя на 1 день составляет "+userBudjet);
+        alert("Бюджет пользователя на 1 день составляет "+userBudjet);
+        </script>
+    </body>
+</html>
